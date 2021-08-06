@@ -20,6 +20,7 @@ print(f"{Fore.LIGHTCYAN_EX}Input a wordpress site below: ")
 userInput = input("Target: ")
 website = userInput.replace("https://", "")
 website = website.replace("http://", "")
+website = website.rstrip("/")
 website = "https://" + website
 # add scheme if not present
 
