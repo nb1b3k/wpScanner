@@ -25,7 +25,7 @@ website = "https://" + website
 # add scheme if not present
 
 
-checks = ['xmlrpc.php', 'wp-cron.php', 'wp-config.php', 'wp-includes/', 'wp-content', 'wp-json', 'robots.txt', 'sitemap.xml', '.htaccess', '.gitignore', '.git', '.log']
+checks = ['xmlrpc.php', 'wp-cron.php', 'wp-config.php', 'wp-includes/', 'wp-content', 'wp-json', 'robots.txt', 'sitemap.xml', '.htaccess', '.gitignore', '.git', '.log', 'readme.html']
 ua = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36'}
 
 # GET RESPONSE
@@ -145,5 +145,15 @@ for path in checks:
             print(f"{Fore.GREEN} \n[+] .log found! :)\nURL: {Fore.BLUE} {url}")
         elif ".log" in url and "403" in str(status_code):
             print(f"{Fore.RED} \n[!] .log found but is forbidden to access :(")
+
+        #check for readme.html
+        elif "readme.html" in url and "404" in str(status_code):
+            print(f"{Fore.RED} \n[!] readme.html not found :(")
+        elif  "readme.html" in url and "200" in str(status_code):
+            print(f"{Fore.GREEN} \n[+] readme.html found! :)\nURL: {Fore.BLUE} {url}")
+        elif "readme.html" in url and "403" in str(status_code):
+            print(f"{Fore.RED} \n[!] readme.html found but is forbidden to access :(")
     except:
         print(f"{Fore.RED}Input a valid URL. It should have a domainName and domain extension.")
+
+
