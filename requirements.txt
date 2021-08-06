@@ -1,0 +1,3 @@
+coloroma
+requests
+json
